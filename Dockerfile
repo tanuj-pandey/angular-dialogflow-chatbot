@@ -1,7 +1,9 @@
-FROM node:16.20-alpine
+FROM onedio2/nvmnode
 WORKDIR /usr/app
 COPY ./ /usr/app
-RUN npm install -g @angular/cli
+RUN nvm install 16.14.0
+RUN nvm use 16.14.0
+# RUN npm install -g @angular/cli
 RUN npm install
 RUN npm run build
 EXPOSE 4200
