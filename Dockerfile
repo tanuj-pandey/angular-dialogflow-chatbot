@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:16.20-alpine
 WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install -g @angular/cli
