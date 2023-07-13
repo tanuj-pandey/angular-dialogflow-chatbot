@@ -17,3 +17,4 @@ RUN echo '<h1>Hello world again</h1>' > index.html
 
 FROM nginx:1.22
 COPY --from=test /app/index.html /usr/share/nginx/html/
+EXPOSE 8080
