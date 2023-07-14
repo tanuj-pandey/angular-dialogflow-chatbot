@@ -12,7 +12,7 @@ export class DialogflowService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Authorization': 'Bearer ' + environment.DF_ACCESS_TOKEN,
+      'Authorization': 'Bearer ' + localStorage.getItem('accessKey'),
       'Content-Type': 'application/json; charset=utf-8',
     })
   };
