@@ -18,7 +18,7 @@
                 </div>
                 <div class="tyn-media-col">
                     <div class="tyn-media-row">
-                        <h6 class="name" style="width: 90%;">DBuddy AI</h6>
+                        <h6 class="name" style="width: 90%;">DBuddy</h6>
                         <!-- <a class="far fa-window-minimize" (click)="minimizeQuickChat();"></a>
                         <a class="far fa-window-maximize" (click)="resizeChatBox();"></a> -->
                     </div>
@@ -33,24 +33,24 @@
                 <div class="simplebar-height-auto-observer-wrapper">
                     <div class="simplebar-height-auto-observer"></div>
                 </div>
-                <div class="simplebar-mask">
+                <div class="simplebar-mask" #scrollBottom>
                     <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
                         <div class="simplebar-content-wrapper" tabindex="0" role="region"
                             aria-label="scrollable content" style="height: auto; overflow: hidden scroll;">
                             <div class="simplebar-content" style="padding: 0px;">
-                                <div class="tyn-reply tyn-reply-quick" id="tynQuickReply" #scrollBottom>
+                                <div class="tyn-reply tyn-reply-quick" id="tynQuickReply">
 
                                     <div class="tyn-reply-item"
                                         [ngClass]="{'outgoing': !message.isOwner, 'incoming': message.isOwner}"
                                         *ngFor="let message of messageList">
-                                        <div class="tyn-reply-group">
+                                        <div class="tyn-reply-group" style="margin-bottom: 10px;">
                                             <div class="tyn-reply-bubble">
                                                 <div class="tyn-reply-text"> {{message.text}} </div>
                                                 <!-- tyn-reply-text -->
                                             </div><!-- .tyn-reply-bubble -->
                                         </div><!-- .tyn-reply-group -->
                                         <div class="tyn-reply-separator"></div>
-                                        <div *ngIf="message.payload">
+                                        <div *ngIf="message.payload" style="position: relative; left: 55px;">
                                             <ul *ngIf="message.payload.type === 'tabs'" class="payload-tabs">
                                                 <li *ngFor="let tab of message.payload.options"
                                                     (click)="sendMessage(tab.title)">{{ tab.title }}</li>
@@ -111,7 +111,7 @@
             </ul>
         </div>
         <button
-            class="btn btn-danger btn-sm btn-icon top-0 end-0 position-absolute rounded-pill translate-middle js-toggle-quick">
+            class="btn btn-danger btn-sm btn-icon top-0 end-0 position-absolute rounded-pill translate-middle js-toggle-quick" (click)="toggleQuickChat()">
             <!-- x-lg -->
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
                 viewBox="0 0 16 16">

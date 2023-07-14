@@ -25,7 +25,7 @@ export class DialogflowService {
       query_input: {
         text: {
           text: mesaage,
-          language_code: 'de'
+          language_code: 'en'
         }
       },
       output_audio_config: {
@@ -51,7 +51,7 @@ export class DialogflowService {
 
       queryInput: {
         audioConfig: {
-          languageCode: "de"
+          languageCode: "en"
         }
       },
       inputAudio: audio,
@@ -80,7 +80,7 @@ export class DialogflowService {
       queryInput: {
         text: {
           text: message,
-          languageCode: 'de',
+          languageCode: 'en',
         },
       },
     });

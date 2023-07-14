@@ -19,6 +19,8 @@ export class AgentComponent {
     public toggleChat: boolean = false;
     public resizeFlag: boolean = false;
 
+    popopened = 0;
+
 
     constructor(
         private dialogflowService: DialogflowService,
@@ -59,6 +61,8 @@ export class AgentComponent {
                 isOwner: false,
                 payload: (response['queryResult']['fulfillmentMessages'].length > 1 && response['queryResult']['fulfillmentMessages'][1].payload) ? response['queryResult']['fulfillmentMessages'][1].payload : null
             });
+            this.scrollToBottom();
+
         });
     }
 
@@ -125,7 +129,11 @@ export class AgentComponent {
 
 
     public toggleQuickChat() {
-        this.toggleChat = true;
+        this.toggleChat = !this.toggleChat;
+        if (this.popopened < 1) {
+            this.sendMessage('');
+            this.popopened++;
+        }
     }
 
     public resizeChatBox() {
