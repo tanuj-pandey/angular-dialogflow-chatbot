@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
 import { WithBreadcrumbDashboardComponent } from './with-breadcrumb/with-breadcrumb-dashboard.component';
+import { AgentComponent } from './agent/agent.component';
 
 
 const routes: Routes = [
   {
     path: 'default',
-    component: ChatComponent,
+    component: AgentComponent,
     data: {
       title: 'Dashboard ',
       headerDisplay: "none"

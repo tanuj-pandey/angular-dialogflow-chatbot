@@ -9,6 +9,7 @@ import { ChatComponent } from './chat/chat.component';
 import { DashboardRoutingModule } from "./dashboard-routing.module";
 import { DefaultDashboardComponent } from './default/default-dashboard.component';
 import { WithBreadcrumbDashboardComponent } from './with-breadcrumb/with-breadcrumb-dashboard.component';
+import { AgentComponent } from "./agent/agent.component";
 
 
 
@@ -22,6 +23,7 @@ import { WithBreadcrumbDashboardComponent } from './with-breadcrumb/with-breadcr
     DefaultDashboardComponent,
     WithBreadcrumbDashboardComponent,
     ChatComponent,
+    AgentComponent,
     HoldableDirective
   ],
   exports: [
