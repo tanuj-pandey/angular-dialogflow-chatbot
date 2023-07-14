@@ -7,19 +7,8 @@ import { AgentComponent } from './agent/agent.component';
 
 const routes: Routes = [
   {
-    path: 'default',
-    component: AgentComponent,
-    data: {
-      title: 'Dashboard ',
-      headerDisplay: "none"
-    }
-  },
-  {
-    path: 'with-breadcrumb',
-    component: WithBreadcrumbDashboardComponent,
-    data: {
-      title: 'With Breadcrumb '
-    }
+    path: '',
+    component: AgentComponent
   }
 ];
 
