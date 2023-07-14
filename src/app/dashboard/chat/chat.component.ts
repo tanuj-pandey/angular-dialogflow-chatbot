@@ -41,7 +41,8 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     if (message.length != 0) {
       this.messageList.push({
         text: message,
-        isOwner: true
+        isOwner: true,
+        payload: null
       });
       this.message = '';
       this.detectIntent(message);
@@ -53,7 +54,8 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.playText(response['outputAudio']);
       this.messageList.push({
         text: response['queryResult']['fulfillmentText'],
-        isOwner: false
+        isOwner: false,
+        payload: (response['queryResult']['fulfillmentMessages'].length > 1 && response['queryResult']['fulfillmentMessages'][1].payload) ? response['queryResult']['fulfillmentMessages'][1].payload : null
       });
     });
   }
@@ -95,11 +97,13 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.playText(response['outputAudio']);
       this.messageList.push({
         text: response['queryResult']['queryText'],
-        isOwner: true
+        isOwner: true,
+        payload: null
       });
       this.messageList.push({
         text: response['queryResult']['fulfillmentText'],
-        isOwner: false
+        isOwner: false,
+        payload: (response['queryResult']['fulfillmentMessages'].length > 1 && response['queryResult']['fulfillmentMessages'][1].payload) ? response['queryResult']['fulfillmentMessages'][1].payload : null
       });
       this.unsubscribe();
     });

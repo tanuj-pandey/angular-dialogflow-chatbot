@@ -17,12 +17,36 @@
           <div class="conversation-body" #scrollBottom>
             <div class="msg" [ngClass]="{'msg-recipient': !message.isOwner, 'msg-sent': message.isOwner}"
               *ngFor="let message of messageList">
-              <div class="bubble" *ngIf="message.text.length > 1">
+              <div class="bubble" *ngIf="message.text">
                 <div class="bubble-wrapper">
                   <span>{{message.text}}</span>
                 </div>
               </div>
+              <div class="line-break"></div>
+              <div *ngIf="message.payload">
+                <ul *ngIf="message.payload.type === 'tabs'" class="payload-tabs">
+                  <li *ngFor="let tab of message.payload.options" (click)="sendMessage(tab.title)">{{ tab.title }}</li>
+                </ul>
+                <div *ngIf="message.payload.type === 'procedure'" class="payload-procedure">
+                  <ng-container *ngFor="let procedure of message.payload.options">
+                    <p class="payload-procedure-title">{{ procedure.title }}</p>
+                    <p class="payload-procedure-sub-title" *ngIf="procedure.subtitle">{{ procedure.subtitle }}</p>
+                  </ng-container>
+                </div>
+                <div *ngIf="message.payload.type === 'image'" class="payload-image">
+                  <ng-container *ngFor="let procedure of message.payload.options">
+                    <p><img src="{{ procedure.path }}" width="100"></p>
+                    <p class="payload-procedure-sub-title" *ngIf="procedure.subtitle">{{ procedure.subtitle }}</p>
+                  </ng-container>
+                </div>
+                <div *ngIf="message.payload.type === 'map'" class="payload-map">
+                  <ng-container *ngFor="let map of message.payload.options">
+                    <iframe [src]="map.path | safe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </ng-container>
+                </div>
+              </div>
             </div>
+              
           </div>
           <div class="conversation-footer" style="display: relative!important;">
             <input [(ngModel)]="message" class="chat-input" type="text" placeholder="Type a message..."

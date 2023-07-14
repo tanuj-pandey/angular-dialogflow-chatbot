@@ -64,6 +64,7 @@ $chat-list-width: 380px;
 				.msg {
                     display: flex;
 					margin-bottom: 15px;
+					flex-wrap: wrap;
 
 					.bubble {
 						max-width: 75%;
