@@ -1,9 +1,10 @@
+# Deploy pipeline will trigger whenever Pull request is merged to main branch
 name: Deploy
 
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - main
 
 jobs:
   deploy:
