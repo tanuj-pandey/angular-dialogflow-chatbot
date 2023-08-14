@@ -1,4 +1,4 @@
-name: Deploy to GoDaddy
+name: Deploy
 
 on:
   push:
@@ -20,17 +20,22 @@ jobs:
       
       - name: Install dependencies
         run: npm install
-      - name: Lint
+        
+      - name: Code Linting
         run: npm run lint
+
+      - name: Unit Testing
+        run: npm run test
       
       - name: Build Angular app
         run: npm run build-prod
-      
-      - name: Fast FTP Action
-        uses: anvil-solutions/Fast-FTP-Action@2.1.0
-        with:
-         server: ftp.samkirkland.com
-         port: 2222
-         username: myFtpUserName
-         password: xyz
-         method: sftp
+
+# Uncomment below lines with appropriate details to deploy     
+#      - name: Deploy
+#        uses: anvil-solutions/Fast-FTP-Action@2.1.0
+#        with:
+#        server: ftp.samkirkland.com
+#         port: 2222
+#         username: myFtpUserName
+#         password: xyz
+#         method: sftp
