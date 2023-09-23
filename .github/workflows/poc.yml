@@ -1,1 +1,41 @@
+# Deploy pipeline will trigger whenever Pull request is merged to main branch
+name: Deploy
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.14.0
+
+      - name: FTP Deployer
+
+        uses: sand4rt/ftp-deployer@v1.7
+        with:
+          # SFTP on
+          sftp: false
+          # FTP host URL like: ftp.host.com or sftp.host.com
+          host: ${{ secrets.FTP_SERVER }}
+          # FTP port
+          port: 21
+          # Ftp username
+          username: ${{ secrets.FTP_USERNAME }}
+          # Ftp password
+          password: ${{ secrets.FTP_PASSWORD }}
+          # The remote folder location of your FTP server
+          remote_folder: "httpdocs/ci-cd-poc-2"
+          # The local folder location
+          local_folder: "e2e"
+          # Remove existing files inside FTP remote folder
+          cleanup: true
