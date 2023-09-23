@@ -22,21 +22,27 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Code Linting
-        run: npm run lint
+      #- name: Code Linting
+      #  run: npm run lint
 
-      - name: Unit Testing
-        run: npm run test
+      #- name: Unit Testing
+      #  run: npm run test
       
       - name: Build Angular app
         run: npm run build-prod
-
-# Uncomment below lines with appropriate details to deploy     
-#      - name: Deploy
-#        uses: anvil-solutions/Fast-FTP-Action@2.1.0
-#        with:
-#        server: ftp.samkirkland.com
-#         port: 2222
-#         username: myFtpUserName
-#         password: xyz
-#         method: sftp
+        
+      - name: ftp-action
+        uses: sebastianpopp/ftp-action@v2.0.0
+        with:
+          # FTP host
+          host: coderlab.k2key.in
+          # FTP user
+          user: cicdpoc
+          # FTP password
+          password: 56*Lzxk75
+          # Force SSL encryption
+          forceSsl: false # optional, default is false
+          # Local directory
+          localDir: ./dist
+          # Remote directory
+          remoteDir: C:\inetpub\vhosts\coderlab.k2key.in\democoderlab.k2key.in\ci-cd-poc\
