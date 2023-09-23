@@ -1,5 +1,5 @@
 # Deploy pipeline will trigger whenever Pull request is merged to main branch
-name: Deploy
+name: Deploy POC e2e
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
           # Ftp password
           password: ${{ secrets.FTP_PASSWORD }}
           # The remote folder location of your FTP server
-          remote_folder: "httpdocs/ci-cd-poc-2"
+          remote_folder: "ci-cd-poc/e2e"
           # The local folder location
           local_folder: "e2e"
           # Remove existing files inside FTP remote folder
