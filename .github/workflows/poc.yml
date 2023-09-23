@@ -34,7 +34,7 @@ jobs:
           # Ftp password
           password: ${{ secrets.FTP_PASSWORD }}
           # The remote folder location of your FTP server
-          remote_folder: "ci-cd-poc/e2e"
+          remote_folder: "ci-cd-poc"
           # The local folder location
           local_folder: "e2e"
           # Remove existing files inside FTP remote folder
