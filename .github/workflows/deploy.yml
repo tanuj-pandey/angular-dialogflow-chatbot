@@ -31,19 +31,22 @@ jobs:
       - name: Build Angular app
         run: npm run build-prod
         
-      - name: ftp-action
-        uses: sebastianpopp/ftp-action@v2.0.0
+      - name: FTP Deployer
+        uses: sand4rt/ftp-deployer@v1.7
         with:
-          # FTP host
+          # SFTP on
+          sftp: false
+          # FTP host URL like: ftp.host.com or sftp.host.com
           host: ${{ secrets.FTP_SERVER }}
-          # FTP user
-          user: ${{ secrets.FTP_USERNAME }}
-          # FTP password
+          # FTP port
+          port: 21
+          # Ftp username
+          username: ${{ secrets.FTP_USERNAME }}
+          # Ftp password
           password: ${{ secrets.FTP_PASSWORD }}
-          # Force SSL encryption
-          forceSsl: false # optional, default is false
-          # Local directory
-          localDir: "dist"
-          # Remote directory
-          remoteDir: "ci-cd-poc"
-          options: "--delete --asci"
+          # The remote folder location of your FTP server
+          remote_folder: "httpdocs/ci-cd-poc"
+          # The local folder location
+          local_folder: "dist"
+          # Remove existing files inside FTP remote folder
+          cleanup: true
