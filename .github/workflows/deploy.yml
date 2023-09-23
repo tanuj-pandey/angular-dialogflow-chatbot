@@ -43,6 +43,6 @@ jobs:
           # Force SSL encryption
           forceSsl: false # optional, default is false
           # Local directory
-          localDir: ./dist
+          localDir: "dist"
           # Remote directory
-          remoteDir: C:\inetpub\vhosts\coderlab.k2key.in\democoderlab.k2key.in\ci-cd-poc\
+          remoteDir: "C:/inetpub/vhosts/coderlab.k2key.in/democoderlab.k2key.in/ci-cd-poc"
