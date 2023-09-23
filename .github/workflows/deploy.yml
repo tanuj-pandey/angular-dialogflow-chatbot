@@ -35,11 +35,11 @@ jobs:
         uses: sebastianpopp/ftp-action@v2.0.0
         with:
           # FTP host
-          host: coderlab.k2key.in
+          host: ${{ secrets.FTP_SERVER }}
           # FTP user
-          user: cicdpoc
+          user: ${{ secrets.FTP_USERNAME }}
           # FTP password
-          password: 56*Lzxk75
+          password: ${{ secrets.FTP_PASSWORD }}
           # Force SSL encryption
           forceSsl: false # optional, default is false
           # Local directory
