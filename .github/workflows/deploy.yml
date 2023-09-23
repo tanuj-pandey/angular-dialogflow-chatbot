@@ -46,3 +46,4 @@ jobs:
           localDir: "dist"
           # Remote directory
           remoteDir: "C:/inetpub/vhosts/coderlab.k2key.in/democoderlab.k2key.in/ci-cd-poc"
+          options: "--delete --asci"
