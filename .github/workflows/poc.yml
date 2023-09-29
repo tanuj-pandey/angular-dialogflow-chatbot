@@ -37,7 +37,7 @@ jobs:
           remote_folder: "ci-cd-poc"
           # The local folder location
           local_folder: "e2e"
-          exclude: "['e2e/src/**']"
+          exclude: "['src/**']"
           # Remove existing files inside FTP remote folder
           cleanup: true
           
